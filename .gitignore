@@ -1,0 +1,13 @@
+# .gitignore
+#
+#
+# Ignore everything in Wordpress except our special theme and any plugins we will make in the future
+
+wordpress/*
+!wordpress/wp-content
+
+wordpress/wp-content/*
+!wordpress/wp-content/themes
+
+wordpress/wp-content/themes/*
+!wordpress/wp-content/themes/chibicritters
