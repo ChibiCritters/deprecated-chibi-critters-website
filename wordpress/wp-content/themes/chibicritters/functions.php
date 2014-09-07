@@ -26,7 +26,7 @@
 /*
  * Set up the content width value based on the theme's design.
  *
- * @see twentythirteen_content_width() for template-specific adjustments.
+ * @see chibicritters_content_width() for template-specific adjustments.
  */
 if ( ! isset( $content_width ) )
 	$content_width = 604;
@@ -57,22 +57,22 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_setup() {
+function chibicritters_setup() {
 	/*
 	 * Makes Twenty Thirteen available for translation.
 	 *
 	 * Translations can be added to the /languages/ directory.
 	 * If you're building a theme based on Twenty Thirteen, use a find and
-	 * replace to change 'twentythirteen' to the name of your theme in all
+	 * replace to change 'chibicritters' to the name of your theme in all
 	 * template files.
 	 */
-	load_theme_textdomain( 'twentythirteen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'chibicritters', get_template_directory() . '/languages' );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', twentythirteen_fonts_url() ) );
+	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', chibicritters_fonts_url() ) );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -94,7 +94,7 @@ function twentythirteen_setup() {
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'twentythirteen' ) );
+	register_nav_menu( 'primary', __( 'Navigation Menu', 'chibicritters' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -106,7 +106,7 @@ function twentythirteen_setup() {
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
-add_action( 'after_setup_theme', 'twentythirteen_setup' );
+add_action( 'after_setup_theme', 'chibicritters_setup' );
 
 /**
  * Return the Google font stylesheet URL, if available.
@@ -118,20 +118,20 @@ add_action( 'after_setup_theme', 'twentythirteen_setup' );
  *
  * @return string Font stylesheet or empty string if disabled.
  */
-function twentythirteen_fonts_url() {
+function chibicritters_fonts_url() {
 	$fonts_url = '';
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'twentythirteen' );
+	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'chibicritters' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Bitter, translate this to 'off'. Do not translate into your
 	 * own language.
 	 */
-	$bitter = _x( 'on', 'Bitter font: on or off', 'twentythirteen' );
+	$bitter = _x( 'on', 'Bitter font: on or off', 'chibicritters' );
 
 	if ( 'off' !== $source_sans_pro || 'off' !== $bitter ) {
 		$font_families = array();
@@ -157,7 +157,7 @@ function twentythirteen_fonts_url() {
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_scripts_styles() {
+function chibicritters_scripts_styles() {
 	/*
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
@@ -170,22 +170,22 @@ function twentythirteen_scripts_styles() {
 		wp_enqueue_script( 'jquery-masonry' );
 
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
-	wp_enqueue_script( 'twentythirteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2014-06-08', true );
+	wp_enqueue_script( 'chibicritters-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2014-06-08', true );
 
 	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
+	wp_enqueue_style( 'chibicritters-fonts', chibicritters_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.03' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'twentythirteen-style', get_stylesheet_uri(), array(), '2013-07-18' );
+	wp_enqueue_style( 'chibicritters-style', get_stylesheet_uri(), array(), '2013-07-18' );
 
 	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentythirteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentythirteen-style' ), '2013-07-18' );
-	wp_style_add_data( 'twentythirteen-ie', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'chibicritters-ie', get_template_directory_uri() . '/css/ie.css', array( 'chibicritters-style' ), '2013-07-18' );
+	wp_style_add_data( 'chibicritters-ie', 'conditional', 'lt IE 9' );
 }
-add_action( 'wp_enqueue_scripts', 'twentythirteen_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'chibicritters_scripts_styles' );
 
 /**
  * Filter the page title.
@@ -199,7 +199,7 @@ add_action( 'wp_enqueue_scripts', 'twentythirteen_scripts_styles' );
  * @param string $sep   Optional separator.
  * @return string The filtered title.
  */
-function twentythirteen_wp_title( $title, $sep ) {
+function chibicritters_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -215,22 +215,22 @@ function twentythirteen_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentythirteen' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'chibicritters' ), max( $paged, $page ) );
 
 	return $title;
 }
-add_filter( 'wp_title', 'twentythirteen_wp_title', 10, 2 );
+add_filter( 'wp_title', 'chibicritters_wp_title', 10, 2 );
 
 /**
  * Register two widget areas.
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_widgets_init() {
+function chibicritters_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'twentythirteen' ),
+		'name'          => __( 'Main Widget Area', 'chibicritters' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Appears in the footer section of the site.', 'twentythirteen' ),
+		'description'   => __( 'Appears in the footer section of the site.', 'chibicritters' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -238,24 +238,24 @@ function twentythirteen_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Secondary Widget Area', 'twentythirteen' ),
+		'name'          => __( 'Secondary Widget Area', 'chibicritters' ),
 		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears on posts and pages in the sidebar.', 'twentythirteen' ),
+		'description'   => __( 'Appears on posts and pages in the sidebar.', 'chibicritters' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'twentythirteen_widgets_init' );
+add_action( 'widgets_init', 'chibicritters_widgets_init' );
 
-if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
+if ( ! function_exists( 'chibicritters_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_paging_nav() {
+function chibicritters_paging_nav() {
 	global $wp_query;
 
 	// Don't print empty markup if there's only one page.
@@ -263,15 +263,15 @@ function twentythirteen_paging_nav() {
 		return;
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'chibicritters' ); ?></h1>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'chibicritters' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'chibicritters' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -280,13 +280,13 @@ function twentythirteen_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
+if ( ! function_exists( 'chibicritters_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
 *
 * @since Twenty Thirteen 1.0
 */
-function twentythirteen_post_nav() {
+function chibicritters_post_nav() {
 	global $post;
 
 	// Don't print empty markup if there's nowhere to navigate.
@@ -297,11 +297,11 @@ function twentythirteen_post_nav() {
 		return;
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'chibicritters' ); ?></h1>
 		<div class="nav-links">
 
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'twentythirteen' ) ); ?>
-			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'twentythirteen' ) ); ?>
+			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'chibicritters' ) ); ?>
+			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'chibicritters' ) ); ?>
 
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -309,29 +309,29 @@ function twentythirteen_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
+if ( ! function_exists( 'chibicritters_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
  *
- * Create your own twentythirteen_entry_meta() to override in a child theme.
+ * Create your own chibicritters_entry_meta() to override in a child theme.
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_entry_meta() {
+function chibicritters_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
-		echo '<span class="featured-post">' . __( 'Sticky', 'twentythirteen' ) . '</span>';
+		echo '<span class="featured-post">' . __( 'Sticky', 'chibicritters' ) . '</span>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
-		twentythirteen_entry_date();
+		chibicritters_entry_date();
 
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'twentythirteen' ) );
+	$categories_list = get_the_category_list( __( ', ', 'chibicritters' ) );
 	if ( $categories_list ) {
 		echo '<span class="categories-links">' . $categories_list . '</span>';
 	}
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'twentythirteen' ) );
+	$tag_list = get_the_tag_list( '', __( ', ', 'chibicritters' ) );
 	if ( $tag_list ) {
 		echo '<span class="tags-links">' . $tag_list . '</span>';
 	}
@@ -340,33 +340,33 @@ function twentythirteen_entry_meta() {
 	if ( 'post' == get_post_type() ) {
 		printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'chibicritters' ), get_the_author() ) ),
 			get_the_author()
 		);
 	}
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
+if ( ! function_exists( 'chibicritters_entry_date' ) ) :
 /**
  * Print HTML with date information for current post.
  *
- * Create your own twentythirteen_entry_date() to override in a child theme.
+ * Create your own chibicritters_entry_date() to override in a child theme.
  *
  * @since Twenty Thirteen 1.0
  *
  * @param boolean $echo (optional) Whether to echo the date. Default true.
  * @return string The HTML-formatted post date.
  */
-function twentythirteen_entry_date( $echo = true ) {
+function chibicritters_entry_date( $echo = true ) {
 	if ( has_post_format( array( 'chat', 'status' ) ) )
-		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' );
+		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'chibicritters' );
 	else
 		$format_prefix = '%2$s';
 
 	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
 		esc_url( get_permalink() ),
-		esc_attr( sprintf( __( 'Permalink to %s', 'twentythirteen' ), the_title_attribute( 'echo=0' ) ) ),
+		esc_attr( sprintf( __( 'Permalink to %s', 'chibicritters' ), the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( sprintf( $format_prefix, get_post_format_string( get_post_format() ), get_the_date() ) )
 	);
@@ -378,13 +378,13 @@ function twentythirteen_entry_date( $echo = true ) {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_the_attached_image' ) ) :
+if ( ! function_exists( 'chibicritters_the_attached_image' ) ) :
 /**
  * Print the attached image with a link to the next attached image.
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_the_attached_image() {
+function chibicritters_the_attached_image() {
 	/**
 	 * Filter the image attachment size to use.
 	 *
@@ -395,7 +395,7 @@ function twentythirteen_the_attached_image() {
 	 *     @type int The attachment width in pixels.
 	 * }
 	 */
-	$attachment_size     = apply_filters( 'twentythirteen_attachment_size', array( 724, 724 ) );
+	$attachment_size     = apply_filters( 'chibicritters_attachment_size', array( 724, 724 ) );
 	$next_attachment_url = wp_get_attachment_url();
 	$post                = get_post();
 
@@ -454,7 +454,7 @@ endif;
  *
  * @return string The Link format URL.
  */
-function twentythirteen_get_link_url() {
+function chibicritters_get_link_url() {
 	$content = get_the_content();
 	$has_url = get_url_in_content( $content );
 
@@ -474,7 +474,7 @@ function twentythirteen_get_link_url() {
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
  */
-function twentythirteen_body_class( $classes ) {
+function chibicritters_body_class( $classes ) {
 	if ( ! is_multi_author() )
 		$classes[] = 'single-author';
 
@@ -486,14 +486,14 @@ function twentythirteen_body_class( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'twentythirteen_body_class' );
+add_filter( 'body_class', 'chibicritters_body_class' );
 
 /**
  * Adjust content_width value for video post formats and attachment templates.
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_content_width() {
+function chibicritters_content_width() {
 	global $content_width;
 
 	if ( is_attachment() )
@@ -501,7 +501,7 @@ function twentythirteen_content_width() {
 	elseif ( has_post_format( 'audio' ) )
 		$content_width = 484;
 }
-add_action( 'template_redirect', 'twentythirteen_content_width' );
+add_action( 'template_redirect', 'chibicritters_content_width' );
 
 /**
  * Add postMessage support for site title and description for the Customizer.
@@ -510,12 +510,12 @@ add_action( 'template_redirect', 'twentythirteen_content_width' );
  *
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
-function twentythirteen_customize_register( $wp_customize ) {
+function chibicritters_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'twentythirteen_customize_register' );
+add_action( 'customize_register', 'chibicritters_customize_register' );
 
 /**
  * Enqueue Javascript postMessage handlers for the Customizer.
@@ -525,7 +525,7 @@ add_action( 'customize_register', 'twentythirteen_customize_register' );
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_customize_preview_js() {
-	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
+function chibicritters_customize_preview_js() {
+	wp_enqueue_script( 'chibicritters-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
-add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+add_action( 'customize_preview_init', 'chibicritters_customize_preview_js' );

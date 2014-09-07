@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twenty Thirteen 1.3\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/twentythirteen\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/chibicritters\n"
 "POT-Creation-Date: 2014-09-03 00:45:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,7 +145,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#. #-#-#-#-#  twentythirteen.pot (Twenty Thirteen 1.3)  #-#-#-#-#
+#. #-#-#-#-#  chibicritters.pot (Twenty Thirteen 1.3)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: footer.php:19
 msgid "http://wordpress.org/"
@@ -316,7 +316,7 @@ msgid "Twenty Thirteen"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://wordpress.org/themes/twentythirteen"
+msgid "http://wordpress.org/themes/chibicritters"
 msgstr ""
 
 #. Description of the plugin/theme
