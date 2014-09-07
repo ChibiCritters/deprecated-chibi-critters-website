@@ -24,7 +24,7 @@ function chibicritters_custom_header_setup() {
 	$args = array(
 		// Text color and image (empty to use none).
 		'default-text-color'     => '220e10',
-		'default-image'          => '%s/images/headers/chibicritters_bg.jpg',
+		'default-image'          => '%s/images/headers/chibicritters_bg.png',
 
 		// Set height and width, with a maximum value for the width.
 		'height'                 => 230,
@@ -44,7 +44,7 @@ function chibicritters_custom_header_setup() {
 	 */
 	register_default_headers( array(
 		'circle' => array(
-			'url'           => '%s/images/headers/chibicritters_bg.jpg',
+			'url'           => '%s/images/headers/chibicritters_bg.png',
 			// TODO we need to change the circle thumbnail as well
 			'thumbnail_url' => '%s/images/headers/circle-thumbnail.png',
 			'description'   => _x( 'Circle', 'header image description', 'chibicritters' )

@@ -1987,6 +1987,11 @@ footer.entry-meta {
 	text-decoration: none;
 }
 
+.post {
+	margin-top: 50px;	
+	margin-bottom: 50px;
+}
+
 .post-navigation {
 	background-color: #fff;
 	color: #ca3c08;
@@ -2603,7 +2608,7 @@ footer.entry-meta {
 }
 
 .site-footer .sidebar-container {
-	background-image: url('images/footers/chibicritters_playing.jpg');
+	background-image: url('images/footers/chibicritters_playing.png');
 	background-size: 117%;
 	background-repeat: no-repeat;
 	background-position: center 69%;
