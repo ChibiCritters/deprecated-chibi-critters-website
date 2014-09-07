@@ -959,12 +959,16 @@ ul.nav-menu .focus > ul,
 }
 
 /* Navbar */
-.navbar {
+.nav-wordpress {
 	background-color: #f7f5e7;
 	margin: 0 auto;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
+
+	-webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
 }
 
 .site-header .search-form {
@@ -2814,6 +2818,7 @@ footer.entry-meta {
 		padding: 5px;
 		margin-top: 5px;
 	}
+
 	.entry-content img.alignleft,
 	.entry-content .wp-caption.alignleft {
 		margin-left: 0;
@@ -2839,6 +2844,10 @@ footer.entry-meta {
 @media (max-width: 643px) {
 	.site-title {
 		font-size: 60px;
+	}
+
+	.site-description {
+		font-size: 14px;
 	}
 
 	#content .entry-header,
@@ -3169,7 +3178,7 @@ footer.entry-meta {
 	.site-content nav,
 	.widget-area,
 	.main-navigation,
-	.navbar,
+	.nav-wordpress,
 	.more-link {
 		display: none;
 	}
