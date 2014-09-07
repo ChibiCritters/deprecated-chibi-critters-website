@@ -1266,6 +1266,29 @@ footer.entry-meta {
 	border-radius: 0;
 }
 
+.feature-badge {
+	display: block;
+	width: 140px;
+	height: 140px;
+	margin: 0 auto;
+	background-size: cover;
+}
+
+.draw-badge {
+	background-image: url(images/draw-badge.png);
+}
+
+.summon-badge {
+	background-image: url(images/summon-badge.png);
+}
+
+.love-badge {
+	background-image: url(images/love-badge.png);
+}
+
+.quest-badge {
+	background-image: url(images/quest-badge.png);
+}
 
 /**
  * 5.4 Galleries
