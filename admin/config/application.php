@@ -10,7 +10,7 @@ define("MODEL_ROOT", ROOT . 'app/models');
 define("HELPER_ROOT", ROOT . 'app/helpers');
 define("LIB_ROOT", ROOT . 'lib/');
 
-define("WEB_ROOT", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['CONTEXT_PREFIX']);
+define("WEB_ROOT", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . '/admin/');
 
 require_once(ROOT . 'lib/spyc.php');
 

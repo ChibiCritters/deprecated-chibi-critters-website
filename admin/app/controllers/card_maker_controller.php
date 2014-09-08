@@ -218,8 +218,6 @@ class CardMakerController extends Controller {
 
       $imageHelper = new ImageHelper($card);
     }
-   
-    
 
     $im = $imageHelper->generateImage();
     header('Content-Type: image/png');
