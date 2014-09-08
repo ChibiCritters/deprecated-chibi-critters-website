@@ -35,9 +35,9 @@ class Card extends Model {
   public function load($id) {
     $sql = <<<SQL
   SELECT 
-    Card.id, 
-    Card.name, 
-    image_path, 
+    `card`.id, 
+    `card`.name, 
+    `image_path`, 
     `condition`, 
     effect, 
     prize, 
@@ -48,10 +48,10 @@ class Card extends Model {
     card_type_id, 
     card_type.name as card_type 
   FROM 
-    Card, Card_Type 
+    `card`, `card_type`
   WHERE 
-    Card.id = ? and 
-    Card.card_type_id = Card_Type.id
+    `card`.id = ? and 
+    `card`.card_type_id = `card_type`.id
 SQL;
 
     if ($stmt = Model::getMysqli()->prepare($sql)) {
