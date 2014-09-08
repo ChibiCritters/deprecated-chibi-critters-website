@@ -11,3 +11,6 @@ wordpress/wp-content/*
 
 wordpress/wp-content/themes/*
 !wordpress/wp-content/themes/chibicritters
+
+# Ignore temp files created by gedit
+*.*~
