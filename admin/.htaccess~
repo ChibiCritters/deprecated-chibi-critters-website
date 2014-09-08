@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+
+
+#Turn on engine rewrite
+RewriteEngine On
+RewriteBase /admin/
+
+#Rule 1
+#Rewrite .less.css => less.php
+RewriteCond %{REQUEST_URI} ^(.*)(/)?assets/(.*)\.less\.css$
+RewriteRule ^(.*)$ config/less.php [L,END]
+
+#Rule 2
+#Rewrite assets to app/assets
+RewriteRule ^assets/(.*)$ app/assets/$1 [L]
+
+#Rule 3
+#Rewrite everything else to the router
+RewriteCond %{REQUEST_URI} !^(.*)(/)?assets/(.*)$
+RewriteRule ^(.*)$ config/routes.php [L]

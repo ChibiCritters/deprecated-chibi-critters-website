@@ -1,0 +1,6 @@
+# database settings
+database:
+  database: chibicrittersdb
+  username: root
+  password: root
+  ip: localhost
