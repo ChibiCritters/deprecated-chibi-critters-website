@@ -186,8 +186,8 @@ SQL;
    public static function InSet($setId) {
     $sql = <<<SQL
 SELECT 
-  Card.id, 
-  Card.name, 
+  `card`.id, 
+  `card`.name, 
   image_path, 
   `condition`, 
   effect, 
@@ -197,16 +197,16 @@ SELECT
   quest_points, 
   turn_count, 
   card_type_id, 
-  card_type.name as card_type,
-  card_in_set.id as card_in_set_id,
-  card_in_set.set_id as card_in_set_set_id,
-  card_in_set.language_id as card_in_set_language_id
+  `card_type`.name as card_type,
+  `card_in_set`.id as card_in_set_id,
+  `card_in_set`.set_id as card_in_set_set_id,
+  `card_in_set`.language_id as card_in_set_language_id
 FROM 
-  Card, Card_Type, Card_In_Set 
+  `card`, `card_type`, `card_in_set`
 WHERE 
-  Card.card_type_id = Card_Type.id and
-  Card.id = Card_In_Set.card_id and 
-  Card_In_Set.set_id = ?
+  `card`.card_type_id = `card_type`.id and
+  `card`.id = `card_in_set`.card_id and 
+  `card_in_set`.set_id = ?
 SQL;
 
     if ($stmt = Model::$mysqli->prepare($sql)) {
@@ -248,21 +248,21 @@ SQL;
     $sql = <<<SQL
 SELECT *
 FROM
-  Card
+  `card`
 LEFT JOIN
   (SELECT 
-      card.id as card_id
+      `card`.id as card_id
     FROM 
-      Card_Type, Card
+      `card_type`, `card`
     LEFT JOIN 
-      Card_In_Set ON Card_In_Set.card_id = Card.id
+      `card_in_set` ON `card_in_set`.card_id = `card`.id
     WHERE 
-      Card.card_type_id = Card_Type.id and
-      Card_In_Set.set_Id = ?
-     ) as Card_Exists
-  ON Card_Exists.card_id = Card.id
+      `card`.card_type_id = `card_type`.id and
+      `card_in_set`.set_Id = ?
+     ) as `card_exists`
+  ON `card_exists`.card_id = `card`.id
 WHERE
-  Card_Exists.card_id IS NULL
+  `card_exists`.card_id IS NULL
 SQL;
 
     if ($stmt = Model::$mysqli->prepare($sql)) {
