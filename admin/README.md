@@ -5,6 +5,8 @@ Software by Ivan Montiel
 
 ## Installation ##
 
+#### Apache Config ####
+
 This project requires the htaccess file to work properly.  Make sure that
 Apache allows overrides: (/etc/apache2/sites-available/default)
 
@@ -28,6 +30,17 @@ Also make sure that Rewrite_module is enabled. Run the following in the command 
 sudo a2enmod rewrite
 sudo service apache2 restart
 ```
+
+#### File Config ####
+
+There are some example files for your consideration with this installation.
+
+Under "config/" there is a "database.example.yml".  Copy it to "database.yml" and change the settings
+to the apprioprate values.
+
+#### Database Config ####
+
+Run "db/schema-creation.sql" for MySQL.  Warning, it will drop any databases and tables of the same name.
 
 ## About this Project ##
 

@@ -136,6 +136,25 @@ ALTER TABLE `card_in_set`
   ADD CONSTRAINT `fk_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_set_id` FOREIGN KEY (`set_id`) REFERENCES `set` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
+
+--
+-- Dumping data for table `language`
+--
+
+INSERT INTO `language` (`id`, `prefix`, `name`) VALUES
+(1, 'en', 'English');
+
+--
+-- Dumping data for table `card_type`
+--
+
+INSERT INTO `card_type` (`id`, `name`, `background_image_path`, `foreground_image_path`) VALUES
+(1, 'Critter', './critter_bg.png', './critter_front.png'),
+(2, 'Spell', './spell_bg.png', './spell_front.png'),
+(3, 'Sabotage', './sabotage_bg.png', './sabotage_front.png'),
+(4, 'Love', './love_bg.png', './love_front.png'),
+(5, 'Quest', './quest_bg.png', './quest_front.png');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
