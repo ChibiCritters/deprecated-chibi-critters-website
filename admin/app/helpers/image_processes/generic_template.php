@@ -24,9 +24,15 @@
     }
   
     public function generateImage() {
+      $bg = imagecreatetruecolor ( 
+        self::$OUTERIMAGE["width"],
+        self::$OUTERIMAGE["height"]);
+
       // Grab the background image
-      $bg = imagecreatefrompng($this->backgroundImagePath);
+      $bgFile = imagecreatefrompng($this->backgroundImagePath);
       $bgInfo = getimagesize($this->backgroundImagePath);
+
+      imagecopy($bg, $bgFile, 0, 0, 0, 0, $bgInfo[0], $bgInfo[1]);
       
       // Grab the forground image
       $fg = imagecreatefrompng($this->foregroundImagePath);
@@ -37,22 +43,19 @@
       $imageInfo = getimagesize($this->imagePath);
       
       // Make sure the image is the correct size
-      $image = imagescale ($image , 
+      // Place the image on the background image
+      imagealphablending($bg, false);
+      imagesavealpha($bg, true);
+      imagecopyresampled ($bg, $image,
+        self::$INNERIMAGE["offsetX"],
+        self::$INNERIMAGE["offsetY"],
+        self::$INNERIMAGE["x"],
+        self::$INNERIMAGE["y"],
         self::$INNERIMAGE["width"],
         self::$INNERIMAGE["height"],
-        IMG_BILINEAR_FIXED);
-
-
-      // Place the image on the background image
+        $imageInfo[0],
+        $imageInfo[1]);
       imagealphablending($bg, true);
-      imagesavealpha($bg, true);
-      imagecopy($bg, $image, 
-        self::$INNERIMAGE["offsetX"],
-        self::$INNERIMAGE["offsetY"], 
-        self::$INNERIMAGE["x"], 
-        self::$INNERIMAGE["y"], 
-        self::$INNERIMAGE["width"], 
-        self::$INNERIMAGE["height"]);
       
       // Place the foreground image on the background image
       imagecopy($bg, $fg, 0, 0, 0, 0, $fgInfo[0], $fgInfo[1]);

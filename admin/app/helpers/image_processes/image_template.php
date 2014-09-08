@@ -15,6 +15,12 @@ abstract class ImageTemplate {
    */
 
   const FONTFILE = FONT_PATH;
+
+  public static $OUTERIMAGE = [
+    "width" => 825,
+    "height" => 1125
+  ];
+
   public static $INNERIMAGE = [
     "offsetX" => 123,
     "offsetY" => 195,
