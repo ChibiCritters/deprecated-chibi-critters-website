@@ -95,7 +95,7 @@ SQL;
   public function save() {
     if ($this->id < 0) {
       // Create
-      if ($stmt = Model::getMysqli()->prepare("INSERT into card " .
+      if ($stmt = Model::getMysqli()->prepare("INSERT into `card` " .
                                  "(`name`, `image_path`, `condition`, `effect`, " .
                                  "`strength`, `prize`, `penalty`, `turn_count`, ".
                                  "`quest_points`, `card_type_id`) VALUES (" .
@@ -120,7 +120,7 @@ SQL;
       } 
     } else {
       // Update
-      if ($stmt = Model::$mysqli->prepare("UPDATE card SET " .
+      if ($stmt = Model::$mysqli->prepare("UPDATE `card` SET " .
                                   "name=?, image_path=?, `condition`=?, effect=?, prize=?, penalty=?, " .
                                  "strength=?, quest_points=?, turn_count=? WHERE id=?")) {
         $stmt->bind_param('sssssssssi', 
@@ -146,7 +146,7 @@ SQL;
   public function delete() {
     if ($this->id > 0) {
       // delete
-      if ($stmt = Model::$mysqli->prepare("DELETE FROM card WHERE id=?")) {
+      if ($stmt = Model::$mysqli->prepare("DELETE FROM `card` WHERE id=?")) {
         $stmt->bind_param('i', $this->id);
 
         $stmt->execute();
@@ -156,10 +156,10 @@ SQL;
 
   public static function All() {
     $query = "SELECT * " .
-             "FROM Card WHERE 1=1";
+             "FROM `card` WHERE 1=1";
 
     $result = Model::getMysqli()->query($query);
-
+    if ($result === false) { echo Model::getMysqli()->error; }
     $rows = Model::resultToArray($result);
 
     $results = array();

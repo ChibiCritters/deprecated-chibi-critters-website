@@ -24,7 +24,7 @@ class CardType extends Model {
   public function load($id) {
     if ($stmt = Model::getMysqli()->prepare("SELECT " .
                                  "id, name, background_image_path, foreground_image_path " .
-                                 "FROM Card_Type WHERE id = ?"
+                                 "FROM `card_type` WHERE id = ?"
                                 )) {
       $stmt->bind_param('i', $id);
 
@@ -49,7 +49,7 @@ class CardType extends Model {
   public function loadByName($name) {
     if ($stmt = Model::getMysqli()->prepare("SELECT " .
                                  "id, name, background_image_path, foreground_image_path " .
-                                 "FROM Card_Type WHERE name = ?"
+                                 "FROM `card_type` WHERE name = ?"
                                 )) {
       $stmt->bind_param('s', $name);
 
@@ -90,7 +90,7 @@ class CardType extends Model {
 
   public static function All() {
     $query = "SELECT id, name, background_image_path, foreground_image_path " .
-             "FROM Card_Type WHERE 1=1";
+             "FROM `card_type` WHERE 1=1";
 
     $result = Model::getMysqli()->query($query);
 
