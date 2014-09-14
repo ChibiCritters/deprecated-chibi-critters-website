@@ -110,16 +110,7 @@ function chibicritters_header_style() {
 	?>
 		.site-header {
 			background-image: url(<?php header_image(); ?>);
-		}
-		@media (max-width: 767px) {
-			.site-header {
-				background-size: 768px auto;
-			}
-		}
-		@media (max-width: 359px) {
-			.site-header {
-				background-size: 360px auto;
-			}
+			background-size: cover;
 		}
 	<?php
 		endif;
