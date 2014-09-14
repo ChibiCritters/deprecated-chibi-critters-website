@@ -1290,6 +1290,36 @@ footer.entry-meta {
 	background-image: url(images/quest-badge.png);
 }
 
+#sec3 {
+	background-image: url(images/chibicritters_accent.png);
+	background-position: center 40%;
+	border-bottom: 4px solid #0D90AD;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#sec3 h2.callout {
+	background-color: rgba(0, 0, 0, .7);
+	color: #fff;
+	display: inline-block;
+	padding: 10px;
+}
+
+#sec3 .panel {
+	background-color:rgba(244,244,244,.9);
+	border: none;
+	border-radius: 0px;
+}
+
+#sec3 .panel .panel-heading {
+	background-color: rgba(0, 0, 0, .7);
+	color: #fff;
+	border-radius: 0px;
+}
+
+#sec3 .panel .panel-heading h2 {
+	margin:0px;
+}
 /**
  * 5.4 Galleries
  * ----------------------------------------------------------------------------
