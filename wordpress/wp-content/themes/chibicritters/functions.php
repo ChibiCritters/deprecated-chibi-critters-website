@@ -105,6 +105,9 @@ function chibicritters_setup() {
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
+
+	remove_filter( 'the_content', 'wpautop' );
+	remove_filter( 'the_excerpt', 'wpautop' );
 }
 add_action( 'after_setup_theme', 'chibicritters_setup' );
 
