@@ -76,25 +76,38 @@ abstract class ImageTemplate {
   /**
    * Provides imagettftext extension that allows justified text within a width.
    */
-  protected function imagettftextjustified(&$image, $size, $angle, $left, $top, $color, $font, $text, $max_width, $minspacing=3,$linespacing=1) {
+  protected function imagettftextjustified(
+    &$image, 
+    $size, 
+    $angle, 
+    $left, 
+    $top, 
+    $color,
+    $font, 
+    $text, 
+    $max_width, 
+    $minspacing=3,
+    $linespacing=1, 
+    $rotated = false) 
+  {
     $wordwidth = array();
     $linewidth = array();
     $linewordcount = array();
     $largest_line_height = 0;
-    $lineno=0;
-    $words=explode(" ",$text);
-    $wln=0;
-    $linewidth[$lineno]=0;
-    $linewordcount[$lineno]=0;
+    $lineno = 0;
+    $words = explode(" ",$text);
+    $wln = 0;
+    $linewidth[$lineno] = 0;
+    $linewordcount[$lineno] = 0;
     foreach ($words as $word) {
       $dimensions = imagettfbbox($size, $angle, $font, $word);
       $line_width = $dimensions[2] - $dimensions[0];
       $line_height = $dimensions[1] - $dimensions[7];
       
-      if ($line_height>$largest_line_height) 
+      if ($line_height > $largest_line_height) 
         $largest_line_height = $line_height;
       
-      if (($linewidth[$lineno]+$line_width+$minspacing)>$max_width) {
+      if (($linewidth[$lineno] + $line_width + $minspacing) > $max_width) {
         $lineno++;
         $linewidth[$lineno]=0;
         $linewordcount[$lineno]=0;

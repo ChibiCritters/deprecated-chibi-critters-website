@@ -22,7 +22,7 @@ class UserController extends Controller {
     $password = $_POST['password'];
 
     $user = User::HasUsername($username);
-
+    print_r($user);
     if (isset($user)) {
       if ($user->checkPassword($password)) {
         session_start();

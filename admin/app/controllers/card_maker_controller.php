@@ -191,8 +191,13 @@ class CardMakerController extends Controller {
 
     } else {
       $name = $_GET['name'];
+      $condition = $_GET['condition'];
       $effect = $_GET['effect'];
       $strength = $_GET['strength'];
+      $prize = $_GET['prize'];
+      $penalty = $_GET['penalty'];
+      $turnCount = $_GET['turn_count'];
+      $questPoints = $_GET['quest_points'];
       $type = $_GET['type'];
       $fileId = $_GET['fileId'];
 
@@ -209,8 +214,13 @@ class CardMakerController extends Controller {
 
       $card = new Card(array(
         "name" => $name,
+        "condition" => $condition,
         "effect" => $effect,
         "strength" => $strength,
+        "prize" => $prize,
+        "penalty" => $penalty,
+        "turn_count" => $turnCount,
+        "quest_points" => $questPoints,
         "card_type" => $type,
         "card_type_id" => $cardType->id,
         "image_path" => $frontFilePath

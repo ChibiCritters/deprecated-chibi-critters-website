@@ -25,14 +25,64 @@ class QuestTemplate extends ImageTemplate {
     "width" => 585,
     "height" => 544
   ];
+/*
+Turn Count (circle)
+left hand side - (1.775, .530)
+right hand side - (2.020, .520)
 
+Number of Quest Points 
+upper left corner - (2.040, .4)
+bottom right corner - (3.337, .625)
+
+Image 
+upper left corner - (.447, .659)
+lower right corner - (3.32, 1.693)
+
+Left Text Box 
+upper left corner - (.408, 1.732)
+lower right corner - (1.901, 2.357)
+
+Right Text Box
+upper left corner - (1.933, 1.732)
+lower right corner - (3.364, 2.357)
+
+copyright information
+upper left corner - (.313, 2.41)
+lower right corner - (1.268, 2.477)
+
+card number 
+upper left corner - (2.866, 2.41)
+lower right corner - (3.452, 2.477
+*/
   public static $QUEST_NAMETEXT = [
+    "fontsize" => 30,
+    "rotation" => -90,
+    "x" => 658,
+    "y" => 130
+  ];
+
+  public static $QUEST_EFFECTTEXT = [
+    "fontsize" => 20,
+    "rotation" => -90,
+    "x" => 220,
+    "y" => 130,
+    "width" => 200,
+    "minspacing" => 10,
+    "linespacing" => 1.1
   ];
 
   public static $QUEST_TURNCOUNT = [
+    "fontsize" => 38,
+    "rotation" => -90,
+    "x" => 655,
+    "y" => 560
   ];
 
   public static $QUEST_QUESTPOINTS = [
+    "fontsize" => 30,
+    "rotation" => -90,
+    "x" => 655,
+    "y" => 1000
   ];
 
   public static $QUEST_LEFTTEXT = [
@@ -113,28 +163,56 @@ class QuestTemplate extends ImageTemplate {
 
     // Place the name
     imagefttext($bg,
-      self::$NAMETEXT["fontsize"],
-      self::$NAMETEXT["rotation"],
-      self::$NAMETEXT["x"],
-      self::$NAMETEXT["y"],
+      self::$QUEST_NAMETEXT["fontsize"],
+      self::$QUEST_NAMETEXT["rotation"],
+      self::$QUEST_NAMETEXT["x"],
+      self::$QUEST_NAMETEXT["y"],
       imagecolorexact($bg, 0, 0, 0), self::FONTFILE, $this->name);
 
-    // Place the effect
+    // Place the Turn Count
+    imagefttext($bg,
+      self::$QUEST_TURNCOUNT["fontsize"],
+      self::$QUEST_TURNCOUNT["rotation"],
+      self::$QUEST_TURNCOUNT["x"],
+      self::$QUEST_TURNCOUNT["y"],
+      imagecolorexact($bg, 0xFF, 0xFF, 0xFF), self::FONTFILE, $this->turnCount);
+
+    //  Place the Quest Points
+    $questPointText = $this->questPoints . ' QP';
+    $dimensions = imagettfbbox(
+      self::$QUEST_QUESTPOINTS["fontsize"],
+      0, 
+      self::FONTFILE, 
+      $questPointText);
+    $textWidth = abs($dimensions[2]); // Really, the text "height"
+
+    imagefttext($bg,
+      self::$QUEST_QUESTPOINTS["fontsize"],
+      self::$QUEST_QUESTPOINTS["rotation"],
+      self::$QUEST_QUESTPOINTS["x"],
+      self::$QUEST_QUESTPOINTS["y"] - $textWidth,
+      imagecolorexact($bg, 0, 0, 0), self::FONTFILE, 
+      $questPointText);
+
+    // TODO Place the effect
     // -- Break the effect up into manageable lines
     $this->imagettftextjustified($bg,
-      self::$EFFECTTEXT["fontsize"],
-      self::$EFFECTTEXT["rotation"],
-      self::$EFFECTTEXT["x"],
-      self::$EFFECTTEXT["y"],
+      self::$QUEST_EFFECTTEXT["fontsize"],
+      self::$QUEST_EFFECTTEXT["rotation"],
+      self::$QUEST_EFFECTTEXT["x"],
+      self::$QUEST_EFFECTTEXT["y"],
       imagecolorexact($bg, 0, 0, 0),
       self::FONTFILE,
-      $this->effect,
-      self::$EFFECTTEXT["width"],
-      self::$EFFECTTEXT["minspacing"],
-      self::$EFFECTTEXT["linespacing"]);
+      $this->condition . "\n" . $this->effect,
+      self::$QUEST_EFFECTTEXT["width"],
+      self::$QUEST_EFFECTTEXT["minspacing"],
+      self::$QUEST_EFFECTTEXT["linespacing"],
+      true);
 
+    // TODO Place the Prize and Penalty
+
+    // Place the Codes
     $color = imagecolorexact($bg, 0, 0, 0);
-
     $this->generateCopywrite($bg, $color, true);
     $this->generateCardCode($bg, $color, true, $this->setPrefix, $this->languagePrefix, $this->cardNumber);
 

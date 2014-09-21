@@ -52,6 +52,14 @@
 
     <!-- Textarea -->
     <div class="form-group">
+      <label class="col-md-4 control-label" for="condition">Condition</label>
+      <div class="col-md-5">
+      <textarea data-bind='value : instantaneousCondition, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="condition" name="condition">The condition that the card will have</textarea>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="form-group">
       <label class="col-md-4 control-label" for="effect">Effect</label>
       <div class="col-md-5">
       <textarea data-bind='value : instantaneousEffect, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="effect" name="effect">The effect that the card will have</textarea>
@@ -63,7 +71,38 @@
       <label class="col-md-4 control-label" for="strength">Strength</label>
       <div class="col-md-5">
       <input data-bind='value : strength, valueUpdate: ["input", "afterkeydown"]' id="strength" name="strength" type="text" placeholder="Strength (usually a number)" class="form-control input-md">
+      </div>
+    </div>
 
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="prize">Prize</label>
+      <div class="col-md-5">
+      <textarea data-bind='value : instantaneousPrize, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="prize" name="prize">The prize that the card will have</textarea>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="penalty">Penalty</label>
+      <div class="col-md-5">
+      <textarea data-bind='value : instantaneousPenalty, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="penalty" name="penalty">The penalty that the card will have</textarea>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="turn_count">Turn Count</label>
+      <div class="col-md-5">
+      <input data-bind='value : turn_count, valueUpdate: ["input", "afterkeydown"]' id="turn_count" name="turn_count" type="text" placeholder="Turn Count (usually a number)" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="quest_points">Quest Points</label>
+      <div class="col-md-5">
+      <input data-bind='value : quest_points, valueUpdate: ["input", "afterkeydown"]' id="quest_points" name="quest_points" type="text" placeholder="Quest Points (usually a number)" class="form-control input-md">
       </div>
     </div>
 
