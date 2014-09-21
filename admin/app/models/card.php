@@ -108,7 +108,7 @@ SQL;
           $this->effect, 
           $this->strength, 
           $this->prize, 
-          $this->penatly, 
+          $this->penalty, 
           $this->turn_count, 
           $this->quest_points, 
           $this->card_type_id);
@@ -129,7 +129,7 @@ SQL;
           $this->condition, 
           $this->effect, 
           $this->prize, 
-          $this->penatly, 
+          $this->penalty, 
           $this->strength, 
           $this->quest_points, 
           $this->turn_count, 

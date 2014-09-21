@@ -56,10 +56,14 @@ class QuestTemplate extends ImageTemplate {
     "y" => 1000
   ];
 
-  public static $QUEST_LEFTTEXT = [
-  ];
-
   public static $QUEST_RESTEXT = [
+    "fontsize" => 14,
+    "rotation" => 0,
+    "x" => 220,
+    "y" => 130,
+    "width" => 420,
+    "minspacing" => 2,
+    "linespacing" => 1.0
   ];
 
   public function __construct(
@@ -165,7 +169,7 @@ class QuestTemplate extends ImageTemplate {
       imagecolorexact($bg, 0, 0, 0), self::FONTFILE, 
       $questPointText);
 
-    // TODO Place the effect
+    // Place the effect
     // -- Break the effect up into manageable lines
     $temp = imagecreatetruecolor ( 
       self::$OUTERIMAGE["width"],
@@ -192,7 +196,31 @@ class QuestTemplate extends ImageTemplate {
     imagecopy($bg, $temp, -700, -90, 0, 0, self::$OUTERIMAGE["height"],self::$OUTERIMAGE["width"]
       );
 
-    // TODO Place the Prize and Penalty
+    //  Place the Prize and Penalty
+    $temp = imagecreatetruecolor ( 
+      self::$OUTERIMAGE["width"],
+      self::$OUTERIMAGE["height"]);
+    imagesavealpha($temp, true);
+
+    $trans = imagecolorallocatealpha($temp, 0xFF, 0xFF, 0xFF, 127);
+    imagefill($temp, 0, 0, $trans);
+
+    $this->imagettftextjustified($temp,
+      self::$QUEST_RESTEXT["fontsize"],
+      self::$QUEST_RESTEXT["rotation"],
+      self::$QUEST_RESTEXT["x"],
+      self::$QUEST_RESTEXT["y"],
+      imagecolorexact($temp, 0, 0, 0),
+      self::FONTFILE,
+      'Win - ' . $this->prize . " \n \n " . 'Lose - ' . $this->penalty,
+      self::$QUEST_RESTEXT["width"],
+      self::$QUEST_RESTEXT["minspacing"],
+      self::$QUEST_RESTEXT["linespacing"],
+      true);
+    $temp = imagerotate($temp, -90, imagecolorexact($bg, 0, 0, 0));
+
+    imagecopy($bg, $temp, -700, 370, 0, 0, self::$OUTERIMAGE["height"],self::$OUTERIMAGE["width"]
+      );
 
     // Place the Codes
     $color = imagecolorexact($bg, 0, 0, 0);
