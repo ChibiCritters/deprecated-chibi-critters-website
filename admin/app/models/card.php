@@ -233,6 +233,7 @@ SQL;
         $card->quest_points = $row["quest_points"];
         $card->turn_count = $row["turn_count"];
         $card->card_type_id = $row["card_type_id"];
+        $card->card_type = $row["card_type"];
         $results[] = $card;
 
         // TODO add language
