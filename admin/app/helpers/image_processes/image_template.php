@@ -55,7 +55,7 @@ abstract class ImageTemplate {
   /**
    * Stamp the copywrite on the bottom of the card
    */
-  protected function generateCopywrite(&$bg, $color, $rotated) {
+  protected function generateCopywrite(&$bg, $color, $rotated = false) {
     // TODO: supported rotated (90*) cards.
     imagefttext($bg, 18, 0, 128, 1038, $color, self::FONTFILE, 'Chibi Critters © Daniela Howe');
   }

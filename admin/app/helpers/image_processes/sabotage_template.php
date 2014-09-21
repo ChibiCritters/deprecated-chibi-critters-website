@@ -35,7 +35,7 @@
       imagecopy($bg, $bgFile, 0, 0, 0, 0, $bgInfo[0], $bgInfo[1]);
 
       
-      // Grab the forground image
+      // Grab the foreground image
       $fg = imagecreatefrompng($this->foregroundImagePath);
       $fgInfo = getimagesize($this->foregroundImagePath);
       
