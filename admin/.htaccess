@@ -3,7 +3,7 @@ Options +FollowSymLinks
 
 #Turn on engine rewrite
 RewriteEngine On
-RewriteBase /admin/
+RewriteBase /chibicritters/admin/
 
 #Rule 1
 #Rewrite .less.css => less.php

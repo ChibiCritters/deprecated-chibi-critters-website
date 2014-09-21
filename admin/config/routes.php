@@ -13,6 +13,7 @@ foreach (glob(CONTROLLER_ROOT . "/*.php") as $filename)
 $cardMakerController = new CardMakerController();
 $setController = new SetController();
 $cardInSetController = new CardInSetController();
+$userController = new UserController();
 
 $routes = array (
   'card-maker' => array(
@@ -39,6 +40,10 @@ $routes = array (
       '/' => $setController
       ),
     '/' => new $cardMakerController
+    ),
+  'user' => array(
+      'login' => $userController,
+      '/' => $userController
     ),
   '/' => new HomeController()
   );

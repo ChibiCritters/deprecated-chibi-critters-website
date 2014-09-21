@@ -118,6 +118,23 @@ CREATE TABLE IF NOT EXISTS `set` (
   UNIQUE KEY `prefix_UNIQUE` (`prefix`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(1024) NOT NULL,
+  `role` varchar(256) NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `salt` varchar(512) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
 --
 -- Constraints for dumped tables
 --

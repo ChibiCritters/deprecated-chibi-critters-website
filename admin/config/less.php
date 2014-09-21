@@ -14,6 +14,8 @@ function autoCompileLess($inputFile, $cacheFile, $outputFile) {
   }
 
   $less = new lessc;
+  echo 'test';
+  echo $cacheFile;
   $newCache =  $less->cachedCompile($cache);
   if (!is_array($cache) ||
     $newCache['updated'] > $cache['updated']) {

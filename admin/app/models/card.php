@@ -34,24 +34,24 @@ class Card extends Model {
    */
   public function load($id) {
     $sql = <<<SQL
-  SELECT 
-    `card`.id, 
-    `card`.name, 
-    `image_path`, 
-    `condition`, 
-    effect, 
-    prize, 
-    penalty,
-    strength, 
-    quest_points, 
-    turn_count, 
-    card_type_id, 
-    card_type.name as card_type 
-  FROM 
-    `card`, `card_type`
-  WHERE 
-    `card`.id = ? and 
-    `card`.card_type_id = `card_type`.id
+      SELECT 
+        `card`.id, 
+        `card`.name, 
+        `image_path`, 
+        `condition`, 
+        effect, 
+        prize, 
+        penalty,
+        strength, 
+        quest_points, 
+        turn_count, 
+        card_type_id, 
+        card_type.name as card_type 
+      FROM 
+        `card`, `card_type`
+      WHERE 
+        `card`.id = ? and 
+        `card`.card_type_id = `card_type`.id
 SQL;
 
     if ($stmt = Model::getMysqli()->prepare($sql)) {
@@ -209,7 +209,7 @@ WHERE
   `card_in_set`.set_id = ?
 SQL;
 
-    if ($stmt = Model::$mysqli->prepare($sql)) {
+    if ($stmt = Model::getMysqli()->prepare($sql)) {
 
       $stmt->bind_param('i', $setId);
 
