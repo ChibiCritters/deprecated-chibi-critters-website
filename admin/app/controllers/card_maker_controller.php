@@ -113,14 +113,14 @@ class CardMakerController extends Controller {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $fileId = $_POST['fileId'];
-    //$condition = $_POST['condition'];
+    $condition = $_POST['condition'];
     $effect = $_POST['effect'];
     $strength = $_POST['strength'];
     $type = $_POST['type'];
-    //$prize = $_POST['prize'];
-    //$penalty = $_POST['penalty'];
-    //$questPoints = $_POST['quest_points'];
-    //$turn_count = $_POST['turn_count'];
+    $prize = $_POST['prize'];
+    $penalty = $_POST['penalty'];
+    $questPoints = $_POST['quest_points'];
+    $turn_count = $_POST['turn_count'];
 
     // Set up the image path, $imagePath
     // File id is equal to the hash of the image in the /cache_images/
@@ -141,13 +141,13 @@ class CardMakerController extends Controller {
       "id" => $id,
       "name" => $name,
       "image_path" => $imagePath,
-      //"condition" => $condition,
+      "condition" => $condition,
       "effect" => $effect,
-      //"prize" => $prize,
-     // "penalty" => $penalty,
+      "prize" => $prize,
+      "penalty" => $penalty,
       "strength" => $strength,
-      //"questPoints" => $questPoints,
-      //"duration" => $duration,
+      "quest_points" => $questPoints,
+      "turn_count" => $turn_count,
       "card_type_id" => $cardTypeId
     ));
 

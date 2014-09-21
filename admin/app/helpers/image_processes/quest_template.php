@@ -18,42 +18,13 @@ class QuestTemplate extends ImageTemplate {
   protected $imagePath = '';
 
   public static $QUEST_INNERIMAGE = [
-    "offsetX" => 123,
-    "offsetY" => 195,
+    "offsetX" => 316,
+    "offsetY" => 132,
     "x" => 0,
     "y" => 0,
-    "width" => 585,
-    "height" => 544
+    "width" => 320,
+    "height" => 868
   ];
-/*
-Turn Count (circle)
-left hand side - (1.775, .530)
-right hand side - (2.020, .520)
-
-Number of Quest Points 
-upper left corner - (2.040, .4)
-bottom right corner - (3.337, .625)
-
-Image 
-upper left corner - (.447, .659)
-lower right corner - (3.32, 1.693)
-
-Left Text Box 
-upper left corner - (.408, 1.732)
-lower right corner - (1.901, 2.357)
-
-Right Text Box
-upper left corner - (1.933, 1.732)
-lower right corner - (3.364, 2.357)
-
-copyright information
-upper left corner - (.313, 2.41)
-lower right corner - (1.268, 2.477)
-
-card number 
-upper left corner - (2.866, 2.41)
-lower right corner - (3.452, 2.477
-*/
   public static $QUEST_NAMETEXT = [
     "fontsize" => 30,
     "rotation" => -90,
@@ -62,13 +33,13 @@ lower right corner - (3.452, 2.477
   ];
 
   public static $QUEST_EFFECTTEXT = [
-    "fontsize" => 20,
-    "rotation" => -90,
+    "fontsize" => 14,
+    "rotation" => 0,
     "x" => 220,
     "y" => 130,
-    "width" => 200,
-    "minspacing" => 10,
-    "linespacing" => 1.1
+    "width" => 420,
+    "minspacing" => 2,
+    "linespacing" => 1.0
   ];
 
   public static $QUEST_TURNCOUNT = [
@@ -148,12 +119,12 @@ lower right corner - (3.452, 2.477
     imagealphablending($bg, false);
     imagesavealpha($bg, true);
     imagecopyresampled ($bg, $image,
-      self::$INNERIMAGE["offsetX"],
-      self::$INNERIMAGE["offsetY"],
-      self::$INNERIMAGE["x"],
-      self::$INNERIMAGE["y"],
-      self::$INNERIMAGE["width"],
-      self::$INNERIMAGE["height"],
+      self::$QUEST_INNERIMAGE["offsetX"],
+      self::$QUEST_INNERIMAGE["offsetY"],
+      self::$QUEST_INNERIMAGE["x"],
+      self::$QUEST_INNERIMAGE["y"],
+      self::$QUEST_INNERIMAGE["width"],
+      self::$QUEST_INNERIMAGE["height"],
       $imageInfo[1], // Flipped because we rotated the image
       $imageInfo[0]);// Flipped because we rotated the image
     imagealphablending($bg, true);
@@ -196,18 +167,30 @@ lower right corner - (3.452, 2.477
 
     // TODO Place the effect
     // -- Break the effect up into manageable lines
-    $this->imagettftextjustified($bg,
+    $temp = imagecreatetruecolor ( 
+      self::$OUTERIMAGE["width"],
+      self::$OUTERIMAGE["height"]);
+    imagesavealpha($temp, true);
+
+    $trans = imagecolorallocatealpha($temp, 0xFF, 0xFF, 0xFF, 127);
+    imagefill($temp, 0, 0, $trans);
+
+    $this->imagettftextjustified($temp,
       self::$QUEST_EFFECTTEXT["fontsize"],
       self::$QUEST_EFFECTTEXT["rotation"],
       self::$QUEST_EFFECTTEXT["x"],
       self::$QUEST_EFFECTTEXT["y"],
-      imagecolorexact($bg, 0, 0, 0),
+      imagecolorexact($temp, 0, 0, 0),
       self::FONTFILE,
-      $this->condition . "\n" . $this->effect,
+      $this->condition . " \n \n " . $this->effect,
       self::$QUEST_EFFECTTEXT["width"],
       self::$QUEST_EFFECTTEXT["minspacing"],
       self::$QUEST_EFFECTTEXT["linespacing"],
       true);
+    $temp = imagerotate($temp, -90, imagecolorexact($bg, 0, 0, 0));
+
+    imagecopy($bg, $temp, -700, -90, 0, 0, self::$OUTERIMAGE["height"],self::$OUTERIMAGE["width"]
+      );
 
     // TODO Place the Prize and Penalty
 
