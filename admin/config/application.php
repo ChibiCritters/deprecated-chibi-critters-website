@@ -4,7 +4,7 @@
  */
 
 // CHANGE ME IF YOU MOVE THE PROJECT AROUND!
-define("SUB", '/chibicritters');
+define("SUB", '');
 
 define("ROOT", realpath(dirname(__FILE__)) . '/../');
 define("ASSET_ROOT", ROOT . 'app/assets');

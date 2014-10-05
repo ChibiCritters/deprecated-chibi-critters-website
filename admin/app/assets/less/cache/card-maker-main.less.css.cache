@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:80:"/var/www/html/chibicritters/admin/config/../app/assets/less/card-maker-main.less";s:8:"compiled";s:2119:"html,
+a:4:{s:4:"root";s:75:"/var/www/chibicritters/admin/config/../app/assets/less/card-maker-main.less";s:8:"compiled";s:2119:"html,
 button,
 input,
 select,
@@ -148,4 +148,4 @@ textarea {
     page-break-after: avoid;
   }
 }
-";s:5:"files";a:1:{s:70:"/var/www/html/chibicritters/admin/app/assets/less/card-maker-main.less";i:1411252024;}s:7:"updated";i:1411257479;}
+";s:5:"files";a:1:{s:65:"/var/www/chibicritters/admin/app/assets/less/card-maker-main.less";i:1411875398;}s:7:"updated";i:1412533266;}
