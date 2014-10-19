@@ -189,6 +189,9 @@ class CardMakerController extends Controller {
         $imageHelper = new ImageHelper($card);
       }
 
+      // Only cache images that we've made, not ones being made in the card creator.
+      header('Cache-Control: max-age=3600');
+
     } else {
       $name = $_GET['name'];
       $condition = $_GET['condition'];
@@ -227,9 +230,6 @@ class CardMakerController extends Controller {
         ));
 
       $imageHelper = new ImageHelper($card);
-
-      // Only cache images that we've made, not ones being made in the card creator.
-      header('Cache-Control: max-age=3600');
     }
 
     $im = $imageHelper->generateImage();
