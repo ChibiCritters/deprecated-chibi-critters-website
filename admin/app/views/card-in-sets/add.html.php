@@ -10,30 +10,39 @@
 <div class="row">
 
 <form class="form-horizontal" method="POST" action="./card-maker/sets/add_card">
-    <fieldset>
+  <fieldset>
 
-    <!-- Form Name -->
-    <legend>Add Cards to Set: (<?php echo $set->name; ?>)</legend>
-    <input type="hidden" name="id" value="<?php echo $set->id; ?>" />
-    </fieldset>
+  <!-- Form Name -->
+  <legend>Add Cards to Set: (<?php echo $set->name; ?>)</legend>
+  <input type="hidden" name="id" value="<?php echo $set->id; ?>" />
+  </fieldset>
 
-    <div class="row">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Effect</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
     <?php
       foreach ($cards as $id => $card) {
         $cardId = $card->id;
         echo <<<HTML
-
-    <div class="col-md-3 thumbnail">
-      <img src="{$webroot}card-maker/cards/preview/$cardId">
-      <button class="btn btn-primary" name="cardId" value="$cardId">Add</button>
-    </div>
-
+          <tr>
+            <td>{$card->name}</td>
+            <td>{$card->effect}</td>
+            <td>
+              <button class="btn btn-primary" name="cardId" value="$cardId">Add</button>
+            </td>
+          </tr>
 HTML;
       }
     ?>
-      
-    </div>
-
+    </tbody>
+    
+  </table>
 
 </form>
 
