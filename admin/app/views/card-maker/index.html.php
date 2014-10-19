@@ -15,6 +15,7 @@
   <tbody>
   <?php
     foreach ($cards as $id => $card) {
+      $cardId = $card->id;
       echo <<<HTML
         <tr>
           <td>{$card->name}</td>
