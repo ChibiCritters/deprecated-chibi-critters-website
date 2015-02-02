@@ -113,7 +113,7 @@ body {
 }
 
 a {
-	color: #ca3c08;
+	color: #BC360A;
 	text-decoration: none;
 }
 
@@ -589,11 +589,10 @@ button,
 input[type="submit"],
 input[type="button"],
 input[type="reset"] {
-	background: #e05d22; /* Old browsers */
-	background: -webkit-linear-gradient(top, #e05d22 0%, #d94412 100%); /* Chrome 10+, Safari 5.1+ */
-	background:   linear-gradient(to bottom, #e05d22 0%, #d94412 100%); /* W3C */
+	background: rgba(81, 27, 27, 1); /* Old browsers */
+	background: rgba(81, 27, 27, 1);
 	border: none;
-	border-bottom: 3px solid #b93207;
+	border-bottom: 3px solid rgba(81, 27, 27, 1);
 	border-radius: 2px;
 	color: #fff;
 	display: inline-block;
@@ -609,10 +608,15 @@ input[type="reset"]:hover,
 input[type="submit"]:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus {
-	background: #ed6a31; /* Old browsers */
-	background: -webkit-linear-gradient(top, #ed6a31 0%, #e55627 100%); /* Chrome 10+, Safari 5.1+ */
-	background:   linear-gradient(to bottom, #ed6a31 0%, #e55627 100%); /* W3C */
-	outline: none;
+	background: #EA9629; /* Old browsers */
+	background: #EA9629;
+	border: none;
+	border-bottom: 3px solid #EA9629;
+	border-radius: 2px;
+	color: #fff;
+	display: inline-block;
+	padding: 11px 24px 10px;
+	text-decoration: none;
 }
 
 button:active,
@@ -898,7 +902,7 @@ div.nav-menu > ul {
 .nav-menu li a:hover,
 .nav-menu li:focus > a,
 .nav-menu li a:focus {
-	background-color: #220e10;
+	background-color: rgba(81, 27, 27, 1);
 	color: #fff;
 }
 
@@ -2218,8 +2222,15 @@ footer.entry-meta {
  * ----------------------------------------------------------------------------
  */
 
+.comment-form textarea {
+    width: 100%;
+    background-color: #F6F2ED;
+    border-color: rgba(81, 81, 71, 0.6);
+}
+
 #respond form p.logged-in-as {
 	font-size: 17px;
+	margin-bottom: 0px;
 }
 
 .comments-title,
@@ -2379,7 +2390,7 @@ footer.entry-meta {
 
 /* Comment form */
 .comment-respond {
-	background-color: #F1E8AD;
+	background-color: rgba(241, 232, 173, 0.5);;
 	padding: 30px 0;
 }
 
@@ -2432,6 +2443,9 @@ footer.entry-meta {
 .comment-form [for="url"],
 .comment-form [for="comment"] {
 	float: left;
+	font-family: karla;
+	font-size: 24px;
+	font-weight: 500;
 	padding: 5px 0;
 	width: 120px;
 }
