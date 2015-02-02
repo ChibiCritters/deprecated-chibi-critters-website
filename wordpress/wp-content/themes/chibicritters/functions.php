@@ -303,7 +303,9 @@ function chibicritters_post_nav() {
 	if ( ! $next && ! $previous )
 		return;
 	?>
-	<nav class="navigation post-navigation" role="navigation">
+
+<!--
+<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'chibicritters' ); ?></h1>
 		<div class="nav-links">
 
@@ -312,6 +314,8 @@ function chibicritters_post_nav() {
 
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
+
+
 	<?php
 }
 endif;
@@ -333,9 +337,10 @@ function chibicritters_entry_meta() {
 
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'chibicritters' ) );
-	if ( $categories_list ) {
-		echo '<span class="categories-links">' . $categories_list . '</span>';
-	}
+	//Add Categories Link Under Post Title
+	// if ( $categories_list ) {
+	//	echo '<span class="categories-links">' . $categories_list . '</span>';
+	//}
 
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'chibicritters' ) );

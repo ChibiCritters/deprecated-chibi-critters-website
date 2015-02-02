@@ -11,7 +11,7 @@
 ?>
 
 <div class="container">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-10 col-md-offset-1">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
 				<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
