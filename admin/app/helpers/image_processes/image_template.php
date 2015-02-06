@@ -8,7 +8,7 @@ require_once(dirname($_SERVER['SCRIPT_FILENAME']) . '/application.php');
  *
  * TODO provide a function for text scrunching.
  */
-define("FONT_PATH", ASSET_ROOT . '/fonts/times.ttf');
+define("FONT_PATH", ASSET_ROOT . '/fonts/Lora-Regular.ttf');
 abstract class ImageTemplate {
   /** 
    * Constants
