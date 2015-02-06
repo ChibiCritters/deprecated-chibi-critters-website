@@ -4,18 +4,18 @@
 ?>
 <script>
   window.card = {
-    "id" : <?php echo $card->id ?>,
-    "name" : "<?php echo $card->name ?>",
-    "image_path" : "<?php echo $card->image_path ?>", 
-    "condition" : "<?php echo $card->condition ?>",
-    "effect" : "<?php echo $card->effect ?>",
-    "prize" : "<?php echo $card->prize ?>",
-    "penalty" : "<?php echo $card->penalty ?>",
-    "strength" : "<?php echo $card->strength ?>",
-    "quest_points" : "<?php echo $card->quest_points ?>",
-    "turn_count" : "<?php echo $card->turn_count ?>",
-    "card_type_id" : "<?php echo $card->card_type_id ?>",
-    "card_type" : "<?php echo $card->card_type ?>"
+    "id"           : <?php echo $card->id ?>,
+    "name"         : <?php echo json_encode( $card->name ); ?>,
+    "image_path"   : <?php echo json_encode( $card->image_path ); ?>, 
+    "condition"    : <?php echo json_encode( $card->condition ); ?>,
+    "effect"       : <?php echo json_encode( $card->effect ); ?>,
+    "prize"        : <?php echo json_encode( $card->prize ); ?>,
+    "penalty"      : <?php echo json_encode( $card->penalty ); ?>,
+    "strength"     : <?php echo json_encode( $card->strength ); ?>,
+    "quest_points" : <?php echo json_encode( $card->quest_points ); ?>,
+    "turn_count"   : <?php echo json_encode( $card->turn_count ); ?>,
+    "card_type_id" : <?php echo json_encode( $card->card_type_id ); ?>,
+    "card_type"    : <?php echo json_encode( $card->card_type ); ?>
   };
 </script>
 

@@ -1,0 +1,7 @@
+{
+  "name": "ChibiCritters",
+  "version": "1.0.0",
+  "require-dev" : {
+    "phpunit/phpunit": "4.3.*"
+  }
+}

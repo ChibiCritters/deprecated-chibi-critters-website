@@ -1,5 +1,5 @@
 <?php
-require_once(dirname($_SERVER['SCRIPT_FILENAME']) . '/application.php'); 
+require_once(dirname($_SERVER['SCRIPT_FILENAME']) . '/application.php');
 require_once(MODEL_ROOT . '/card.php');
 
 class CardTest extends PHPUnit_Framework_TestCase {

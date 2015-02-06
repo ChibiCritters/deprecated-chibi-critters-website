@@ -1,5 +1,5 @@
 <?php
-require_once(dirname($_SERVER['SCRIPT_FILENAME']) . '/application.php'); 
+require_once(dirname($_SERVER['SCRIPT_FILENAME']) . '/application.php');
 require_once(ROOT . 'lib/spyc.php');
 
 /**
@@ -15,6 +15,7 @@ abstract class Model {
   private static $user = null;
   private static $password = null;
   private static $database = null;
+  private static $port = 3306;
 
   private $tableName = "";
 
@@ -33,11 +34,17 @@ abstract class Model {
       Model::$password = $parsed['database']['password'];
       Model::$database = $parsed['database']['database'];
 
+      if ( array_key_exists('port', $parsed['database'] ) ) {
+        Model::$port = $parsed['database']['port'];
+      }
+
       Model::$mysqli = new mysqli(
-      Model::$ip,
-      Model::$user,
-      Model::$password,
-      Model::$database);
+          Model::$ip,
+          Model::$user,
+          Model::$password,
+          Model::$database,
+          Model::$port
+      );
     }
 
     return Model::$mysqli;

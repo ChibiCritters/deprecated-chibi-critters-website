@@ -14,3 +14,11 @@ wordpress/wp-content/themes/*
 
 # Ignore temp files created by gedit
 *.*~
+
+# Ignore meta data for composer and npm
+node_modules
+composer.phar
+.standards/.sass-cache
+.standards/vendor
+.standards/node_modules
+.standards/npm-debug.log
