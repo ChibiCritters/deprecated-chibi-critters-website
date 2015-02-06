@@ -4,3 +4,4 @@ database:
   username: root
   password: root
   ip: localhost
+  port: 3306

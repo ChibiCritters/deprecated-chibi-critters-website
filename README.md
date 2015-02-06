@@ -50,3 +50,15 @@ If you are developing local, we reccomend:
 
 
 Please follow the folliwng steps to get Wordpress to show up in root: http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory
+
+# Running Tests
+
+```
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+cd [project_path]
+cd .standards
+sudo npm install
+composer install
+grunt
+```
