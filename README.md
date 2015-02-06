@@ -1,6 +1,10 @@
 ChibiCritters
 =============
 
+[![Stories in Ready](https://badge.waffle.io/idmontie/ChibiCritters.svg?label=ready&title=Ready)](http://waffle.io/idmontie/ChibiCritters)
+
+[![Code Climate](https://codeclimate.com/github/idmontie/ChibiCritters/badges/gpa.svg)](https://codeclimate.com/github/idmontie/ChibiCritters)
+
 ChibiCritters Wordpress Website
 
 # Installation #
