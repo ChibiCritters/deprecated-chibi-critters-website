@@ -12,8 +12,10 @@ class UserController extends Controller {
   function login(&$command) {
     $command[0] = 'login';
 
-    if (!array_key_exists('username', $_POST) ||
-      !array_key_exists('password', $_POST)) {
+    if (! array_key_exists('username', $_POST) ||
+        ! array_key_exists('password', $_POST) ||
+        trim( $_POST['username'] ) === '' ||
+        trim( $_POST['password'] ) === '' ) {
       die();
     }
 
