@@ -54,7 +54,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="condition">Condition</label>
       <div class="col-md-5">
-      <textarea data-bind='value : instantaneousCondition, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="condition" name="condition">The condition that the card will have</textarea>
+      <textarea height="300px" data-bind='value : instantaneousCondition, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="condition" name="condition">The condition that the card will have</textarea>
       </div>
     </div>
 
@@ -62,7 +62,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="effect">Effect</label>
       <div class="col-md-5">
-      <textarea data-bind='value : instantaneousEffect, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="effect" name="effect">The effect that the card will have</textarea>
+      <textarea height="300px" data-bind='value : instantaneousEffect, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="effect" name="effect">The effect that the card will have</textarea>
       </div>
     </div>
 
@@ -74,11 +74,11 @@
       </div>
     </div>
 
-    <!-- Text input-->
+    <!-- Text area-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="prize">Prize</label>
       <div class="col-md-5">
-      <textarea data-bind='value : instantaneousPrize, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="prize" name="prize">The prize that the card will have</textarea>
+      <textarea height="300px" data-bind='value : instantaneousPrize, valueUpdate: ["input", "afterkeydown"]' class="form-control" id="prize" name="prize">The prize that the card will have</textarea>
       </div>
     </div>
 
